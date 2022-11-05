@@ -12,7 +12,8 @@ const response = await openai.listEngines();
 */
 function App() {
   return (
-     <div className='mainTitleMenu'>
+     <div className='mainTitleMenu' style={{paddingLeft: "15%", paddingRight:"15%", paddingTop: "1%"}}>
+       <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1> 
        <div className='centeronly' >
          <h1 className='bigTitleText centeronly' style={{marginTop:"5%", marginBottom:"0%"}}>CREATE AI</h1>
          <h3 className='bigTitleText centeronly' style={{marginTop:"0", marginBottom:"0"}}>GENERATED UI</h3>
