@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import ResultPage from './pages/ResultPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div className='mainTitleMenu'>
+       <div className='centeronly' >
+         <h1 className='bigTitleText centeronly' style={{marginTop:"5%", marginBottom:"0"}}>CREATE AI</h1>
+         <h3 className='bigTitleText centeronly' style={{marginTop:"0"}}>GENERATED UI</h3>
+         <div className='centeronly' style={{marginBottom:"2%"}}>SketchUI generates beautiful UI components and websites</div>
+       </div>
+       <button className='button-google'>Submit</button>
+       <br></br>
+     <ResultPage/>
+     </div>
   );
 }
 
