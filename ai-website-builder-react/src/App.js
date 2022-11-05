@@ -10,6 +10,10 @@ function App() {
          <h3 className='bigTitleText centeronly' style={{marginTop:"0"}}>GENERATED UI</h3>
          <div className='centeronly' style={{marginBottom:"2%"}}>SketchUI generates beautiful UI components and websites</div>
        </div>
+       <input
+              type="text"
+              placeholder="Enter your username"
+              className='loginInput'/>
        <button className='button-google'>Submit</button>
        <br></br>
      <ResultPage/>
