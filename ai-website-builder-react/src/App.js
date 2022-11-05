@@ -14,9 +14,11 @@ function App() {
   return (
      <div className='mainTitleMenu'>
        <div className='centeronly' >
-         <h1 className='bigTitleText centeronly' style={{marginTop:"5%", marginBottom:"0"}}>CREATE AI</h1>
-         <h3 className='bigTitleText centeronly' style={{marginTop:"0"}}>GENERATED UI</h3>
-         <div className='centeronly' style={{marginBottom:"2%"}}>SketchUI generates beautiful UI components and website elements from your drawings.</div>
+         <h1 className='bigTitleText centeronly' style={{marginTop:"5%", marginBottom:"0%"}}>CREATE AI</h1>
+         <h3 className='bigTitleText centeronly' style={{marginTop:"0", marginBottom:"0"}}>GENERATED UI</h3>
+         <div className='smallTitleText centeronly' style={{marginBottom:"1%"}}>SketchUI generates beautiful UI components and website elements</div>
+         <div className='smallTitleText centeronly' style={{marginBottom:"2%"}}>from your drawings - free forever.</div>
+         <br></br>
        </div>
        <input
               type="text"

@@ -374,7 +374,7 @@ navmain {
   border-radius: 20px;
   border-style: solid;
   border-width: thin;
-  border-color: rgb(230, 230, 230);
+  border-color: lightgray;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 3px -1px,
     rgba(0, 0, 0, 0.14) 0 3px 5px 0, rgba(0, 0, 0, 0.12) 0 1px 9px 0;
   box-sizing: border-box;
@@ -412,7 +412,7 @@ navmain {
 .bigTitleText {
   font-size: 80px;
   color: var(--big-title-text);
-  font-weight: 700;
+  font-weight: 1000;
 }
 
 .midTitleText {
@@ -422,9 +422,9 @@ navmain {
 }
 
 .smallTitleText {
-  font-size: 30px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--small-title-text);
+  color: var(--big-title-text);
 }
 
 .mainTitleMenu {
