@@ -2,7 +2,7 @@
 function ResultPage() {
   return (
     <div className="App">
-        <p>TEST</p>
+        <p className="midTitleText centeronly">RESULTS</p>
     </div>
   );
 }
