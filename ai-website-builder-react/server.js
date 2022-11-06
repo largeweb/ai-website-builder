@@ -34,7 +34,12 @@ app.post('/fetch_openapi/', (req, res) => {
   input = '"' + req.body.inputtext + '"';
   grcount = grcount + 1;
   console.log("TESTING THIS WITH INPUT " + input);
-  let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
+  let componenttype;
+  if(indexOf(input, "button") != -1){
+        let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
+  } else {
+        let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
+  }
   console.log(scmd);
   console.log("TESTING THIS V2")
   let output = "";
