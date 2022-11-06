@@ -3,9 +3,27 @@
 # then
 # 	echo "PROVIDE API KEY -- ./openai-request 'API_KEY' 'PROMPT'"
 # else
+if [ "$3" = "button"]
+then
 	PROMPT=$2
 	# echo $PROMPT
 	# echo second argument is "$PROMPT"
 	# curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make a story about some cat", "temperature": 0, "max_tokens": 200}'
 	curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make css code for really cool button with '"$PROMPT"': btn", "temperature": 0, "max_tokens": 200}'
-# fi
+fi
+if [ "$3" = "div"]
+then
+	PROMPT=$2
+	# echo $PROMPT
+	# echo second argument is "$PROMPT"
+	# curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make a story about some cat", "temperature": 0, "max_tokens": 200}'
+	curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make css code for div style with '"$PROMPT"': div", "temperature": 0, "max_tokens": 200}'
+fi
+if [ "$3" = "header"]
+then
+	PROMPT=$2
+	# echo $PROMPT
+	# echo second argument is "$PROMPT"
+	# curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make a story about some cat", "temperature": 0, "max_tokens": 200}'
+	curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make css code for header style with '"$PROMPT"': header", "temperature": 0, "max_tokens": 200}'
+fi

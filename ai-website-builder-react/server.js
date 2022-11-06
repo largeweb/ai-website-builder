@@ -34,7 +34,7 @@ app.post('/fetch_openapi/', (req, res) => {
   input = '"' + req.body.inputtext + '"';
   grcount = grcount + 1;
   console.log("TESTING THIS WITH INPUT " + input);
-  let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input;
+  let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + "button";
   console.log(scmd);
   console.log("TESTING THIS V2")
   let output = "";
@@ -70,6 +70,9 @@ app.post('/fetch_openapi/', (req, res) => {
                     randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
                 }
 
+                if(!JSON.parse(outputjsonstring).choices[0].text.indexOf("}")) {
+                        res.json({"message":"Error occurred generating syntax, please try again"});
+                }
                 uniqueButtonId = randomString;
                 indexOfOpenBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("{");
                 indexOfCloseBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("}");
@@ -85,7 +88,7 @@ app.post('/fetch_openapi/', (req, res) => {
                 exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
-                exec('echo " #'+ uniqueButtonId + ' ' + JSON.parse(outputjsonstring).choices[0].text.substring(indexOfOpenBracket,indexOfCloseBracket+2) + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
+                exec('echo " #'+ uniqueButtonId + ' ' + JSON.parse(outputjsonstring).choices[0].text.substring(indexOfOpenBracket,indexOfCloseBracket+1) + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
                 // exec('echo "' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
