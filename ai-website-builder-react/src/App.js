@@ -19,6 +19,53 @@ function App() {
 
   const [processing, setProcessing] = useState(false);
 
+  const undoApiFetch = async () => {
+    // console.log("TESTING THIS WITH INPUT " + userInput)
+    setProcessing(true)
+    const response = await fetch('http://45.79.200.150:5000/undo_last', {
+      method: 'POST',
+      // body: {input: input}
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "inputtext": userInput })
+    })
+    // .then(
+    // setTimeout(function(){
+    //   console.log("Changing button color to add")
+    // }, 2000)
+    // )
+    setProcessing(false)
+    // console.log("HERE IS THE DATA:")
+    // const data = await response.json()
+    // console.log("..........")
+    // console.log(data)
+    // // openAIResponseJSONString = data;
+    // setAPIResponse(data.choices[0].text)
+    // setAPIResponse("test")
+    // console.log("API RESPONSE: " + APIResponse);
+  }
+  const clearApiFetch = async () => {
+    setProcessing(true)
+    const response = await fetch('http://45.79.200.150:5000/clear_all', {
+      method: 'POST',
+      // body: {input: input}
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ "inputtext": userInput })
+    })
+    // .then(
+    // setTimeout(function(){
+    //   console.log("Changing button color to add")
+    // }, 2000)
+    // )
+    setProcessing(false)
+    // console.log("HERE IS THE DATA:")
+    // const data = await response.json()
+    // console.log("..........")
+    // console.log(data)
+    // // openAIResponseJSONString = data;
+    // setAPIResponse(data.choices[0].text)
+    // // setAPIResponse("test")
+    // // console.log("API RESPONSE: " + APIResponse);
+  }
   const fetchFromOpenAPI = async () => {
     console.log("TESTING THIS WITH INPUT " + userInput)
     setProcessing(true)
@@ -78,6 +125,8 @@ function App() {
           <input type="text" placeholder='   Describe your component here' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
           {<button onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
         </div>
+        {<button onClick={(e) => undoApiFetch()}>Undo</button>}
+        {<button onClick={(e) => clearApiFetch()}>Clear</button>}
         <br></br>
 
         <div className='smallTitleText centeronly'>Add Image</div>
