@@ -35,7 +35,7 @@ app.post('/fetch_openapi/', (req, res) => {
   grcount = grcount + 1;
   console.log("TESTING THIS WITH INPUT " + input);
   let componenttype;
-  if(indexOf(input, "button") != -1){
+  if(input.indexOf("button") != -1){
         let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
   } else {
         let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
