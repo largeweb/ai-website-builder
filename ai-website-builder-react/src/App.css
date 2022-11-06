@@ -77,11 +77,10 @@ body {
 .mainTitleMenu {
   background-color: white;
   padding-top: 30px;
-  float: left;
 }
 
 .rightBlock {
-  float: right;
+  align-content: right;
 }
 
 .fancy-box-with-button {
@@ -120,6 +119,7 @@ body {
 
 #footer {
   clear: both;
+  
 }
 
 .imageBox {

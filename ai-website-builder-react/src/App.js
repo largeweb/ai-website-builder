@@ -46,8 +46,14 @@ function App() {
 
 
   return (
+    
+    
     <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%"}}>
+
+      
       <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
+
+      
       <div className='mainTitleMenu'> 
         <div className='centeronly' >
           <h1 className='bigTitleText centeronly' style={{marginTop:"80px", marginBottom:"0%"}}>Automate</h1>
