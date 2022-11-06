@@ -80,9 +80,9 @@ function App() {
     }
   }
   const downloadCSS = async () => {
-    console.log("Downloading HTML")
+    console.log("Downloading CSS")
     try {
-      const response = await fetch('http://45.79.200.150:5000/downloadhtml', {
+      const response = await fetch('http://45.79.200.150:5000/downloadcss', {
         method: 'GET'
       })
       console.log(".....DONE ?.....")
