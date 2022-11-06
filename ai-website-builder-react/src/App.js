@@ -6,6 +6,11 @@ import './App.css';
 import ResultPage from './pages/ResultPage';
 
 function App() {
+  const [file, setFile] = useState();
+  function handleChange(e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
 
   let openAIResponseJSONString = "";
 
@@ -41,7 +46,7 @@ function App() {
 
 
   return (
-    <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%", marginBottom:"1%"}}>
+    <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%"}}>
       <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
       <div className='mainTitleMenu'> 
         <div className='centeronly' >
@@ -55,37 +60,31 @@ function App() {
           <br></br>
         </div>
       </div>
+
       <div className='rightBlock'>
-        <div class="fancy-box-with-button">
-          <input type="text"/>
-          <button>Submit</button>
+        <div className='upload'>
+          <h2>Add Image:</h2>
+
+          <div className='imageBox'>
+          <input type="file" onChange={handleChange} />
+          <img className = "picture" src={file} />
+          </div>
         </div>
-    
-        <input
-          type="text"
-          placeholder="Describe your component here"
-          value={userInput}
-          className='login'
-          onChange={(e) => setUserInput(e.target.value)} />
-    
-        {<button className='button-google' onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
-        {/* {!processing && <button className='button-google' onClick={(e) => fetchFromOpenAPI()}>Submit</button>} */}
-        {/* {processing && <div style={{width:"10%", marginLeft:"auto", marginRight:"auto"}}>PROCESSING</div>} */}
-        <br></br>
+        <div class="fancy-box-with-button">
+          <input type="text" placeholder='Describe your component here' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
+          {<button onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
+        </div>
       </div>
 
-      <div>
+      <div className='footer'>
         {processing && <div style={{width:"10%", marginLeft:"auto", marginRight:"auto"}}>PROCESSING</div>}
-      </div>
-
-      <ResultPage/>
-      {/* <div>
-        {openAIResponseJSONString}
-      </div> */}
-      <div>
+        <ResultPage/>
         {APIResponse}
       </div>
 
+      {/* <div>
+        {openAIResponseJSONString}
+      </div> */}
     </div>
   );
 }

@@ -227,3 +227,19 @@ body {
   color: white;
   background-color: #339DFF;
 }
+
+#footer {
+  clear: both;
+}
+
+.imageBox {
+max-width: 30%;
+max-height: 30%;
+}
+
+.picture {
+  max-width: inherit;
+  max-height: inherit;
+  height: inherit;
+  width: inherit;
+}
