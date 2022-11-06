@@ -143,7 +143,7 @@ body {
 
 .loader {
   border: 7px solid #f3f3f3; /* Light grey */
-  border-top: 7px solid #3498db; /* Blue */
+  border-top: 7px solid #339dff; /* Blue */
   border-radius: 50%;
   width: 30px;
   height: 30px;
