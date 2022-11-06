@@ -175,9 +175,9 @@ function App() {
           <h2 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>Your</h2>
           <h3 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>User</h3>
           <h4 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"20px"}}>Interface</h4>
-          <div className='smallTitleText centeronly' style={{marginBottom:"5px"}}>SketchUI generates beautiful</div>
-          <div className='smallTitleText centeronly' style={{marginBottom:"5px"}}>UI components and website elements</div>
-          <div className='smallTitleText centeronly' style={{marginBottom:"2%"}}>from your drawings or words.</div>
+          <div className='smallTitleText centeronly' style={{marginBottom:"5px", fontSize:'17px'}}>SketchUI generates beautiful</div>
+          <div className='smallTitleText centeronly' style={{marginBottom:"5px", fontSize:'17px'}}>UI components and website elements</div>
+          <div className='smallTitleText centeronly' style={{marginBottom:"2%", fontSize:'17px'}}>from your drawings or words.</div>
           <br></br>
         </div>
       </div>
@@ -206,7 +206,7 @@ function App() {
 
       <div className='footer'>
         {processing && <div className='loader centeronly'></div>}
-        {processing && <div className='midTitleText centeronly'>Processing Request . . .</div>}
+        {processing && <div className='smallTitleText' style={{textAlign: 'center'}}>Processing Request . . .</div>}
         <br></br>
         <br></br>
         <ResultPage/>
