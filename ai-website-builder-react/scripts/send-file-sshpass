@@ -1,4 +1,4 @@
 #!/bin/bash
 echo STARTING SCRIPT
-echo "$(cat ../../gpass)"
+echo "$(cat ../../../gpass)"
 # sshpass -p "$(cat ../../gpass)" scp -r grao2@:/some/remote/path /some/local/path
