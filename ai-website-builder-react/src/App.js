@@ -11,21 +11,42 @@ function App() {
 
   async function handleChange(e) {
     console.log("Uploading file:")
-    console.log(e.target.files);
+    // console.log(e.target.files);
     // setFile(URL.createObjectURL(e.target.files[0]));
 
-    var data = new FormData()
-    data.append('file', e.target.files[0])
+    // var data = new FormData()
+    // data.append('file', e.target.files[0])
     // data.append('user', 'hubot')
     try {
-        setTimeout(() => {
-          const response = fetch('http://45.79.200.150:5000/sendsketch', {
-          method: 'GET'
-        })
-        }, 3000);
-        // body: {input: input}
-        // headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ "inputtext": userInput })
+      const response = await fetch('http://45.79.200.150:5000/sendsketch', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'text/html',
+        },
+      })
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create blob link to download
+        const url = window.URL.createObjectURL(
+          new Blob([blob]),
+        );
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute(
+          'download',
+          `output.html`,
+        );
+
+        // Append to html link element page
+        document.body.appendChild(link);
+
+        // Start download
+        link.click();
+
+        // Clean up and remove the link
+        link.parentNode.removeChild(link);
+        console.log(".....DONE ?.....")
+      });
     } catch (error) {
       console.log(error)
     }
