@@ -51,7 +51,7 @@ app.post('/clear_all/', (req, res) => {
 });
 
 app.post('/sendsketch', (req, res) => {
-        const file = `/uploaded/input.jpg`;
+        const file = `/root/uploaded/input.jpg`;
         setTimeout(() => {
                 res.download(file); // Set disposition and send it.
         }, 3000);
