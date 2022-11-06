@@ -79,10 +79,6 @@ body {
   padding-top: 30px;
 }
 
-.rightBlock {
-  align-content: right;
-}
-
 .fancy-box-with-button {
   background-color: white;
   border-radius: 15px;
@@ -117,14 +113,9 @@ body {
   background-color: #339DFF;
 }
 
-#footer {
-  clear: both;
-  
-}
-
 .imageBox {
-max-width: 30%;
-max-height: 30%;
+  max-width: 30%;
+  max-height: 30%;
 }
 
 .picture {
@@ -132,4 +123,14 @@ max-height: 30%;
   max-height: inherit;
   height: inherit;
   width: inherit;
+}
+
+.titleArt {
+  max-width: 55%;
+  max-height: 55%;
+  float: right;
+}
+
+.button {
+  background-color: #339DFF;
 }
