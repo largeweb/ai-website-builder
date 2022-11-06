@@ -68,6 +68,28 @@ function App() {
     }
     setProcessing(false)
   }
+  const downloadHTML = async () => {
+    console.log("Downloading HTML")
+    try {
+      const response = await fetch('http://45.79.200.150:5000/downloadhtml', {
+        method: 'GET'
+      })
+      console.log(".....DONE ?.....")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const downloadCSS = async () => {
+    console.log("Downloading HTML")
+    try {
+      const response = await fetch('http://45.79.200.150:5000/downloadhtml', {
+        method: 'GET'
+      })
+      console.log(".....DONE ?.....")
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -107,8 +129,8 @@ function App() {
         {<button onClick={(e) => clearApiFetch()}>Clear</button>}
         {<Link to={'/view'}><button>View Page</button></Link>}
         {<button>View Page</button>}
-        {<button>* Download HTML</button>}
-        {<button>* Download CSS</button>}
+        {<button onClick={(e) => downloadHTML()}>Download HTML</button>}
+        {<button onClick={(e) => downloadCSS()}>Download CSS</button>}
         <br></br>
 
         <div className='smallTitleText centeronly'>Add Image</div>

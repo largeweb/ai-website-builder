@@ -31,14 +31,14 @@ app.use(bodyParser.json());
 
 app.post('/clear_all/', (req, res) => {
   console.log("CLEAR ALL")
-  exec("echo > ./src/pages/result-data", (err, stdout, stderr) => {
+  exec("echo > ./src/pages/result-data.html", (err, stdout, stderr) => {
         if (err !== null) {
                 console.log('exec error: ' + err);
         }
         exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                 console.log("added first half")
         })
-        exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+        exec('cat ./src/pages/result-data.html >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                 console.log("added result data")
         })
         exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
@@ -49,16 +49,25 @@ app.post('/clear_all/', (req, res) => {
 
 });
 
+app.get('/downloadhtml', function(req, res){
+  const file = `./src/pages/result-data.html`;
+  res.download(file); // Set disposition and send it.
+});
+app.get('/downloadcss', function(req, res){
+  const file = `./src/pages/result.css`;
+  res.download(file); // Set disposition and send it.
+});
+
 app.post('/undo_last/', (req, res) => {
   console.log("UNDO LAST")
-  exec("sed -i '$ d' ./src/pages/result-data", (err, stdout, stderr) => {
+  exec("sed -i '$ d' ./src/pages/result-data.html", (err, stdout, stderr) => {
         if (err !== null) {
                 console.log('exec error: ' + err);
         }
         exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                 console.log("added first half")
         })
-        exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+        exec('cat ./src/pages/result-data.html >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                 console.log("added result data")
         })
         exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
@@ -131,19 +140,19 @@ app.post('/fetch_openapi/', (req, res) => {
                         console.log("output is: " + outputjsonstring)
                 })
                 if(componenttype == "button"){
-                        exec('echo "' + "<button id='" + uniqueButtonId + "'>Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<button id='" + uniqueButtonId + "'>Button</button>" + '" >> ./src/pages/result-data.html', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 } else if(componenttype == "div") {
-                        exec('echo "' + "<div id='" + uniqueButtonId + "'>Div</div>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<div id='" + uniqueButtonId + "'>Div</div>" + '" >> ./src/pages/result-data.html', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 } else {
-                        exec('echo "' + "<header id='" + uniqueButtonId + "'>Header</header>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<header id='" + uniqueButtonId + "'>Header</header>" + '" >> ./src/pages/result-data.html', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 }
-                exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                exec('cat ./src/pages/result-data.html >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
                 exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
