@@ -39,9 +39,12 @@ app.post('/fetch_openapi/', (req, res) => {
   if(input.indexOf("button") != -1){
         componenttype = "button";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
-  } else {
+  } else if(input.indexOf("div") != -1){
         componenttype = "div";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
+  } else {
+        componenttype = "header";
+        scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"header"';
   }
   console.log(scmd);
   console.log("TESTING THIS V2")
@@ -91,8 +94,12 @@ app.post('/fetch_openapi/', (req, res) => {
                         exec('echo "' + "<button id='" + uniqueButtonId + "'>Test Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
-                } else {
+                } else if(componenttype == "div") {
                         exec('echo "' + "<div id='" + uniqueButtonId + "'>Test Button</div>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                                console.log("output is: " + outputjsonstring)
+                        })
+                } else {
+                        exec('echo "' + "<header id='" + uniqueButtonId + "'>Test Button</header>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 }
