@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React from "react"
+import React, {Component} from "react"
 // import React, { useState } from 'react';
 import {useState, useEffect} from "react"
 import './App.css';
@@ -8,9 +8,27 @@ import ResultPage from './pages/ResultPage';
 
 function App() {
   const [file, setFile] = useState();
-  function handleChange(e) {
+
+  async function handleChange(e) {
+    console.log("Uploading file:")
     console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    // setFile(URL.createObjectURL(e.target.files[0]));
+
+    var data = new FormData()
+    data.append('file', e.target.files[0])
+    // data.append('user', 'hubot')
+    try {
+      const response = await fetch('http://45.79.200.150:5000/sendsketch', {
+        method: 'POST',
+        // body: {input: input}
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify({ "inputtext": userInput })
+        body: data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   let openAIResponseJSONString = "";

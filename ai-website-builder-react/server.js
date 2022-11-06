@@ -49,6 +49,12 @@ app.post('/clear_all/', (req, res) => {
 
 });
 
+app.post('/sendsketch', (req, res) => {
+        console.log("RECEVING SKETCH?")
+        const uploadedfile = req.body.data;
+        res.sendFile(uploadedfile);
+})
+
 app.get('/downloadhtml', function(req, res){
   const file = `./src/pages/result-data.html`;
   res.download(file); // Set disposition and send it.
