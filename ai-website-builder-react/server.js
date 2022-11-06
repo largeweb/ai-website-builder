@@ -70,7 +70,7 @@ app.post('/fetch_openapi/', (req, res) => {
                     randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
                 }
 
-                if(!JSON.parse(outputjsonstring).choices[0].text.indexOf("}")) {
+                if(JSON.parse(outputjsonstring).choices[0].text.indexOf("}") == -1) {
                         res.json({"message":"Error occurred generating syntax, please try again"});
                 }
                 uniqueButtonId = randomString;
