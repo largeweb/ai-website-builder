@@ -3,9 +3,11 @@
 # then
 # 	echo "PROVIDE API KEY -- ./openai-request 'API_KEY' 'PROMPT'"
 # else
+echo "Starting Script"
 if [ "$3" == "button"]
 then
 	PROMPT=$2
+	echo "We got button"
 	# echo $PROMPT
 	# echo second argument is "$PROMPT"
 	# curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make a story about some cat", "temperature": 0, "max_tokens": 200}'
