@@ -72,9 +72,34 @@ function App() {
     console.log("Downloading HTML")
     try {
       const response = await fetch('http://45.79.200.150:5000/downloadhtml', {
-        method: 'GET'
+        method: 'GET',
+        headers: {
+          'Content-Type': 'text/html',
+        },
       })
-      console.log(".....DONE ?.....")
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create blob link to download
+        const url = window.URL.createObjectURL(
+          new Blob([blob]),
+        );
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute(
+          'download',
+          `result-data.html`,
+        );
+
+        // Append to html link element page
+        document.body.appendChild(link);
+
+        // Start download
+        link.click();
+
+        // Clean up and remove the link
+        link.parentNode.removeChild(link);
+        console.log(".....DONE ?.....")
+      });
     } catch (error) {
       console.log(error)
     }
@@ -128,7 +153,6 @@ function App() {
         {<button onClick={(e) => undoApiFetch()}>Undo</button>}
         {<button onClick={(e) => clearApiFetch()}>Clear</button>}
         {<Link to={'/view'}><button>View Page</button></Link>}
-        {<button>View Page</button>}
         {<button onClick={(e) => downloadHTML()}>Download HTML</button>}
         {<button onClick={(e) => downloadCSS()}>Download CSS</button>}
         <br></br>
