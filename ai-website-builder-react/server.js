@@ -51,15 +51,19 @@ app.post('/clear_all/', (req, res) => {
 });
 
 app.post('/sendsketch', (req, res) => {
-        console.log("RECEVING SKETCH?")
-        const uploadedfile = req.body.data;
-        // res.sendFile(uploadedfile);
-        var writer = fs.createWriteStream('/uploaded/userimage.jpg');
-        writer.write(uploadedfile);
-        exec(`./scripts/send-file-sshpass ${uploadedfile} /home/matt/test/testfile`, (err, stdout, stderr) => {
-        })
-        exec(`rm /uploaded/userimage.jpg`, (err, stdout, stderr) => {
-        })
+        const file = `/root/uploaded/output.html`;
+        setTimeout(() => {
+                res.download(file); // Set disposition and send it.
+        }, 3000);
+        // console.log("RECEVING SKETCH?")
+        // const uploadedfile = req.body.data;
+        // // res.sendFile(uploadedfile);
+        // var writer = fs.createWriteStream('/root/uploaded/userimage.jpg');
+        // writer.write(uploadedfile);
+        // exec(`./scripts/send-file-sshpass`, (err, stdout, stderr) => {
+        // })
+        // exec(`rm /uploaded/userimage.jpg`, (err, stdout, stderr) => {
+        // })
 })
 
 app.get('/downloadhtml', function(req, res){

@@ -1,4 +1,4 @@
 #!/bin/bash
 # echo STARTING SCRIPT
 # echo "$(cat ../../../gpass)"
-sshpass -p "$(cat ../../../gpass)" scp / grao2@152.23.74.143:/C:/Users/grao2/Pictures/Downloaded\ Images\ for\ projects,\ etc/Sketch\ AI\ Uploads
+# sshpass -p "$(cat ../../../gpass)" scp / grao2@152.23.74.143:/C:/Users/grao2/Pictures/Downloaded\ Images\ for\ projects,\ etc/Sketch\ AI\ Uploads
