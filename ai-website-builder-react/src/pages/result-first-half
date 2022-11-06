@@ -1,0 +1,4 @@
+import './result.css'
+function ResultPage() {
+  return (
+    <div>

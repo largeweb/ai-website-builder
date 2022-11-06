@@ -1,9 +1,11 @@
-if [ -z "$2" ]
-then
-	echo "PROVIDE API KEY -- ./openai-request 'API_KEY' 'PROMPT'"
-else
+#!/bin/bash
+# if [ -z "$2" ]
+# then
+# 	echo "PROVIDE API KEY -- ./openai-request 'API_KEY' 'PROMPT'"
+# else
 	PROMPT=$2
 	# echo $PROMPT
-	# echo "second argument is $PROMPT !"
-	curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make an html site", "temperature": 0, "max_tokens": 200}'
-fi
+	# echo second argument is "$PROMPT"
+	# curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "make a story about some cat", "temperature": 0, "max_tokens": 200}'
+	curl https://api.openai.com/v1/completions -H "Content-Type: application/json" -H "Authorization: Bearer $1" -d '{"model": "text-davinci-002", "prompt": "'"$PROMPT"'", "temperature": 0, "max_tokens": 200}'
+# fi

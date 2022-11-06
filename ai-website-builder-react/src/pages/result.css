@@ -1,0 +1,18 @@
+ #testbtn2 { border-radius: 50%; background-color: red; }
+
+ #testbtn3 {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+ #testbtn2 { border: 2px solid blue; } #testbtn2 { border: 2px solid green; }
+ #testbtn2 { border: 2px solid blue; border-radius: 50%; }
+
+The code above will result in a button with the following appearance:
