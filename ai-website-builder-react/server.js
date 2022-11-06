@@ -35,9 +35,12 @@ app.post('/fetch_openapi/', (req, res) => {
   grcount = grcount + 1;
   console.log("TESTING THIS WITH INPUT " + input);
   let scmd = "";
+  let componenttype = "";
   if(input.indexOf("button") != -1){
+        componenttype = "button";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
   } else {
+        componenttype = "div";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
   }
   console.log(scmd);
@@ -84,9 +87,15 @@ app.post('/fetch_openapi/', (req, res) => {
                 exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
-                exec('echo "' + "<button id='" + uniqueButtonId + "'>Test Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
-                        console.log("output is: " + outputjsonstring)
-                })
+                if(componenttype == "button"){
+                        exec('echo "' + "<button id='" + uniqueButtonId + "'>Test Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                                console.log("output is: " + outputjsonstring)
+                        })
+                } else {
+                        exec('echo "' + "<div id='" + uniqueButtonId + "'>Test Button</div>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                                console.log("output is: " + outputjsonstring)
+                        })
+                }
                 exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
