@@ -55,14 +55,14 @@ app.post('/undo_last/', (req, res) => {
 //   let output = "";
   exec("sed -i '$ d' ./src/pages/result-data", (err, stdout, stderr) => {
         // setTimeout(function(){
-                console.log('stdout: ' + stdout);
+                // console.log('stdout: ' + stdout);
                 // console.log('stderr: ' + stderr);
                 if (err !== null) {
                         console.log('exec error: ' + err);
                 }
-                console.log("FINISHED:")
-                console.log(stdout)
-                outputjsonstring = stdout;
+                // console.log("FINISHED:")
+                // console.log(stdout)
+                // outputjsonstring = stdout;
 
 
                 // THIS WILL PUT RESPONSE DATA IN THE RESULT PAGE
@@ -78,27 +78,27 @@ app.post('/undo_last/', (req, res) => {
 
                 // THIS WILL PUT BUTTON WITH RESPONSE DATA IN THE RESULT CSS
 
-                const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                let randomString = '';
-                const charactersLength = characters.length;
-                for ( let i = 0; i < 10; i++ ) {
-                    randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
-                }
+                // const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                // let randomString = '';
+                // const charactersLength = characters.length;
+                // for ( let i = 0; i < 10; i++ ) {
+                //     randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
+                // }
 
-                if(JSON.parse(outputjsonstring).choices[0].text.indexOf("}") == -1) {
-                        res.json({"message":"Error occurred generating syntax, please try again"});
-                }
-                uniqueButtonId = randomString;
-                indexOfOpenBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("{");
-                indexOfCloseBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("}");
+                // if(JSON.parse(outputjsonstring).choices[0].text.indexOf("}") == -1) {
+                //         res.json({"message":"Error occurred generating syntax, please try again"});
+                // }
+                // uniqueButtonId = randomString;
+                // indexOfOpenBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("{");
+                // indexOfCloseBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("}");
                 exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("output is: " + outputjsonstring)
+                        console.log("added first half")
                 })
                 exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("output is: " + outputjsonstring)
+                        console.log("added result data")
                 })
                 exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("output is: " + outputjsonstring)
+                        console.log("added second half")
                 })
                 // exec('echo "' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
                 //         console.log("output is: " + outputjsonstring)
