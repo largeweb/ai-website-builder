@@ -3,6 +3,7 @@ import React from "react"
 // import React, { useState } from 'react';
 import {useState, useEffect} from "react"
 import './App.css';
+import {Link} from 'react-router-dom'
 import ResultPage from './pages/ResultPage';
 
 function App() {
@@ -104,6 +105,10 @@ function App() {
         </div>
         {<button onClick={(e) => undoApiFetch()}>Undo</button>}
         {<button onClick={(e) => clearApiFetch()}>Clear</button>}
+        {<Link to={'/view'}><button>View Page</button></Link>}
+        {<button>View Page</button>}
+        {<button>* Download HTML</button>}
+        {<button>* Download CSS</button>}
         <br></br>
 
         <div className='smallTitleText centeronly'>Add Image</div>
