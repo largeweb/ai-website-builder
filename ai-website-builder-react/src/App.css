@@ -18,11 +18,6 @@
   font: Verdana, Arial, 'sans-serif' !important;
 }
 
-@font-face {
-  font-family: onlineFont;
-  src: url();
-}
-
 .App {
   text-align: center;
   display: flex;
@@ -92,6 +87,7 @@ body {
   font-family: 'Open Sans';
   font-size: 80px;
   color: var(--big-title-text);
+  
   font-weight: 1000;
   text-align: left;
 }
@@ -113,6 +109,11 @@ body {
 .mainTitleMenu {
   background-color: white;
   padding-top: 30px;
+  float: left;
+}
+
+.rightBlock {
+  float: right;
 }
 
 .button-google {
@@ -191,4 +192,38 @@ body {
 .button-google:disabled {
   box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
     rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.fancy-box-with-button {
+  background-color: white;
+  border-radius: 15px;
+  margin: 10px;
+  display: block;
+  position: relative;
+  height: 48px;
+  box-sizing: border-box;
+  padding-right: 100px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 7px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+}
+
+.fancy-box-with-button input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+
+.fancy-box-with-button button {
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  width: 100px;
+  border: none;
+  color: white;
+  background-color: #339DFF;
 }

@@ -41,34 +41,42 @@ function App() {
 
 
   return (
-    <div>
-
-      <div className='mainTitleMenu' style={{paddingLeft: "15%", paddingRight:"15%", paddingTop:"1%", marginBottom:"1%"}}>
-        <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
+    <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%", marginBottom:"1%"}}>
+      <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
+      <div className='mainTitleMenu'> 
         <div className='centeronly' >
           <h1 className='bigTitleText centeronly' style={{marginTop:"80px", marginBottom:"0%"}}>Automate</h1>
-          <h2 className='bigTitleText centeronly' style={{marginTop:"0%", marginBottom:"0%"}}>Your</h2>
-          <h3 className='bigTitleText centeronly' style={{marginTop:"0", marginBottom:"0%"}}>User</h3>
-          <h4 className='bigTitleText centeronly' style={{marginTop:"auto", marginBottom:"0%"}}>Interface</h4>
-          <div className='smallTitleText centeronly' style={{marginBottom:"1%"}}>SketchUI generates beautiful UI components and website elements</div>
+          <h2 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>Your</h2>
+          <h3 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>User</h3>
+          <h4 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>Interface</h4>
+          <div className='smallTitleText centeronly' style={{marginBottom:"1%"}}>SketchUI generates beautiful</div>
+          <div className='smallTitleText centeronly' style={{marginBottom:"1%"}}>UI components and website elements</div>
           <div className='smallTitleText centeronly' style={{marginBottom:"2%"}}>from your drawings - free forever.</div>
           <br></br>
         </div>
       </div>
-
-      <div id="rightBlock">
+      <div className='rightBlock'>
+        <div class="fancy-box-with-button">
+          <input type="text"/>
+          <button>Submit</button>
+        </div>
+    
         <input
           type="text"
           placeholder="Describe your component here"
           value={userInput}
           className='login'
           onChange={(e) => setUserInput(e.target.value)} />
-
-        {!processing && <button className='button-google' onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
-        {processing && <div style={{width:"10%",marginLeft:"45%"}}>PROCESSING</div>}
+    
+        {<button className='button-google' onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
+        {/* {!processing && <button className='button-google' onClick={(e) => fetchFromOpenAPI()}>Submit</button>} */}
+        {/* {processing && <div style={{width:"10%", marginLeft:"auto", marginRight:"auto"}}>PROCESSING</div>} */}
         <br></br>
       </div>
 
+      <div>
+        {processing && <div style={{width:"10%", marginLeft:"auto", marginRight:"auto"}}>PROCESSING</div>}
+      </div>
 
       <ResultPage/>
       {/* <div>
