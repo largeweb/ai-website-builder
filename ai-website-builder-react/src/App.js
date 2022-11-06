@@ -205,7 +205,10 @@ function App() {
       </div>
 
       <div className='footer'>
-        {processing && <div className='midTitleText centeronly'>Processing Request...</div>}
+        {processing && <div className='loader centeronly'></div>}
+        {processing && <div className='midTitleText centeronly'>Processing Request . . .</div>}
+        <br></br>
+        <br></br>
         <ResultPage/>
         {/* {APIResponse} */}
       </div>
