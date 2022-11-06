@@ -91,15 +91,15 @@ app.post('/fetch_openapi/', (req, res) => {
                         console.log("output is: " + outputjsonstring)
                 })
                 if(componenttype == "button"){
-                        exec('echo "' + "<button id='" + uniqueButtonId + "'>Test Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<button id='" + uniqueButtonId + "'>Button</button>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 } else if(componenttype == "div") {
-                        exec('echo "' + "<div id='" + uniqueButtonId + "'>Test Button</div>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<div id='" + uniqueButtonId + "'>Div</div>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 } else {
-                        exec('echo "' + "<header id='" + uniqueButtonId + "'>Test Button</header>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
+                        exec('echo "' + "<header id='" + uniqueButtonId + "'>Header</header>" + '" >> ./src/pages/result-data', (err, stdout, stderr) => {
                                 console.log("output is: " + outputjsonstring)
                         })
                 }

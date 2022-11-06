@@ -33,6 +33,7 @@ function App() {
     //   console.log("Changing button color to add")
     // }, 2000)
     // )
+    setProcessing(false)
     console.log("HERE IS THE DATA:")
     const data = await response.json()
     console.log("..........")
@@ -40,7 +41,6 @@ function App() {
     // openAIResponseJSONString = data;
     setAPIResponse(data.choices[0].text)
     // setAPIResponse("test")
-    setProcessing(false)
     // console.log("API RESPONSE: " + APIResponse);
   }
 
