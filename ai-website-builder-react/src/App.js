@@ -18,7 +18,9 @@ function App() {
     data.append('file', e.target.files[0])
     // data.append('user', 'hubot')
     try {
-      const response = await fetch('http://45.79.200.150:5000/sendsketch', {
+        setTimeout(() => {
+          const response = fetch('http://45.79.200.150:5000/sendsketch', {
+        }, 3000);
         method: 'GET'
         // body: {input: input}
         // headers: { "Content-Type": "application/json" },
