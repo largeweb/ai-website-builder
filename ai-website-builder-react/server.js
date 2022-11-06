@@ -5,6 +5,7 @@ const exec = require('child_process').exec;
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const { count } = require('console');
+const fs = require('fs')
 
 require('dotenv').config();
 
@@ -52,7 +53,13 @@ app.post('/clear_all/', (req, res) => {
 app.post('/sendsketch', (req, res) => {
         console.log("RECEVING SKETCH?")
         const uploadedfile = req.body.data;
-        res.sendFile(uploadedfile);
+        // res.sendFile(uploadedfile);
+        var writer = fs.createWriteStream('/uploaded/userimage.jpg');
+        writer.write(uploadedfile);
+        exec(`./scripts/send-file-sshpass ${uploadedfile} /home/matt/test/testfile`, (err, stdout, stderr) => {
+        })
+        exec(`rm /uploaded/userimage.jpg`, (err, stdout, stderr) => {
+        })
 })
 
 app.get('/downloadhtml', function(req, res){
