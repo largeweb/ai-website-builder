@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 
 app.post('/fetch_openapi/', (req, res) => {
   input = '"' + req.body.inputtext + '"';
-  grcount++;
+  grcount = grcount + 1;
   console.log("TESTING THIS WITH INPUT " + input);
   let scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input;
   console.log(scmd);
@@ -62,7 +62,17 @@ app.post('/fetch_openapi/', (req, res) => {
                 // })
 
                 // THIS WILL PUT BUTTON WITH RESPONSE DATA IN THE RESULT CSS
-                uniqueButtonId = "testbtn" + grcount;
+
+                const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+                let randomString = '';
+                const charactersLength = characters.length;
+                for ( let i = 0; i < 10; i++ ) {
+                    randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+
+                uniqueButtonId = randomString;
+                indexOfOpenBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("{");
+                indexOfCloseBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("}");
                 exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
@@ -75,7 +85,7 @@ app.post('/fetch_openapi/', (req, res) => {
                 exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
-                exec('echo " #'+ uniqueButtonId + ' {' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
+                exec('echo " #'+ uniqueButtonId + ' ' + JSON.parse(outputjsonstring).choices[0].text.substring(indexOfOpenBracket,indexOfCloseBracket+2) + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
                         console.log("output is: " + outputjsonstring)
                 })
                 // exec('echo "' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
