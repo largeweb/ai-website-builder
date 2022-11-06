@@ -39,12 +39,12 @@ app.post('/fetch_openapi/', (req, res) => {
   if(input.indexOf("button") != -1){
         componenttype = "button";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
-  } else if(input.indexOf("div") != -1){
-        componenttype = "div";
-        scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
-  } else {
+  } else if(input.indexOf("header") != -1){
         componenttype = "header";
         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"header"';
+  } else {
+        componenttype = "div";
+        scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
   }
   console.log(scmd);
   console.log("TESTING THIS V2")
