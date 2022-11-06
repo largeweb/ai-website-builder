@@ -81,15 +81,15 @@ body {
 
 .fancy-box-with-button {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 10px;
   display: block;
   position: relative;
   height: 48px;
   box-sizing: border-box;
   padding-right: 100px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 7px 7px -1px,
-    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0 3px 5px 0, rgba(0, 0, 0, 0.12) 0 1px 9px 0;
 }
 
 .fancy-box-with-button input {
@@ -101,7 +101,7 @@ body {
 }
 
 .fancy-box-with-button button {
-  border-radius: 15px;
+  border-radius: 10px;
   position: absolute;
   top: 0;
   right: 0;

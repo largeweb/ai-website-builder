@@ -73,15 +73,15 @@ function App() {
 
 
       <div>
-        <div className='midTitleText centeronly'>Add Text</div>
+        <div className='smallTitleText centeronly'>Add Text</div>
         <div class="fancy-box-with-button centeronly">
           <input type="text" placeholder='   Describe your component here' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
           {<button onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
         </div>
         <br></br>
 
-        <div className='midTitleText centeronly'>Add Image</div>
-        <div className='imageBox centeronly'>
+        <div className='smallTitleText centeronly'>Add Image</div>
+        <div className='imageBox'>
           <input className='' type="file" onChange={handleChange} />
           <img className = "picture" src={file} />
         </div>
