@@ -132,5 +132,11 @@ body {
 }
 
 .button {
-  background-color: #339DFF;
+  background-color: white;
+  border-radius: 5px;
+  border-width: 0px;  
+  width: 170px;
+  margin-left: 30px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 4px 4px -1px,
+    rgba(0, 0, 0, 0.14) 0 3px 5px 0, rgba(0, 0, 0, 0.12) 0 1px 9px 0;
 }

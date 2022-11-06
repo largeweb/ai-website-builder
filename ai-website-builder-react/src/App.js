@@ -161,13 +161,9 @@ function App() {
 
 
   return (
-
-
     <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%"}}>
 
-
       <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
-
 
       <div className='mainTitleMenu'>
         <div>
@@ -186,18 +182,18 @@ function App() {
         </div>
       </div>
 
-
       <div>
         <div className='smallTitleText centeronly'>Add Text</div>
         <div class="fancy-box-with-button centeronly">
           <input type="text" placeholder='   Describe your component here' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
           {<button onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
         </div>
-        {<button onClick={(e) => undoApiFetch()}>Undo</button>}
-        {<button onClick={(e) => clearApiFetch()}>Clear</button>}
-        {<Link to={'/view'}><button>View Page</button></Link>}
-        {<button onClick={(e) => downloadHTML()}>Download HTML</button>}
-        {<button onClick={(e) => downloadCSS()}>Download CSS</button>}
+        {<button className='button' onClick={(e) => undoApiFetch()}>Undo</button>}
+        {<button className='button' onClick={(e) => clearApiFetch()}>Clear</button>}
+        {<Link to={'/view'}><button className='button'>View Page</button></Link>} {<button className='button' onClick={(e) => downloadHTML()}>Download HTML</button>}
+        {<button className='button' onClick={(e) => downloadCSS()}>Download CSS</button>}
+        <br></br>
+        <br></br>
         <br></br>
 
         <div className='smallTitleText centeronly'>Add Image</div>
