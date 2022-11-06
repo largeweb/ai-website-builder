@@ -22,7 +22,7 @@ function App() {
   const fetchFromOpenAPI = async () => {
     console.log("TESTING THIS WITH INPUT " + userInput)
     setProcessing(true)
-    const response = await fetch('http://localhost:5000/fetch_openapi', {
+    const response = await fetch('http://45.79.200.150:5000/fetch_openapi', {
       method: 'POST',
       // body: {input: input}
       headers: { "Content-Type": "application/json" },
@@ -46,15 +46,15 @@ function App() {
 
 
   return (
-    
-    
+
+
     <div style={{paddingLeft: "22%", paddingRight:"22%", paddingTop:"1%"}}>
 
-      
+
       <h1 className='midTitleText' style={{marginTop:"0%"}}>SketchUI</h1>
 
-      
-      <div className='mainTitleMenu'> 
+
+      <div className='mainTitleMenu'>
         <div>
           {/* {<img src='https://img.freepik.com/premium-vector/pixel-art-old-computer-with-retro-8-bit-platform-game-vector-icon-8bit-game-white-background_360488-1145.jpg?w=2000' className='titleArt'></img>} */}
           <img src='https://static.vecteezy.com/system/resources/previews/002/206/017/original/web-programming-icon-free-vector.jpg' className='titleArt'></img>
