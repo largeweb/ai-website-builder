@@ -20,12 +20,12 @@ function App() {
     try {
         setTimeout(() => {
           const response = fetch('http://45.79.200.150:5000/sendsketch', {
+          method: 'GET'
+        })
         }, 3000);
-        method: 'GET'
         // body: {input: input}
         // headers: { "Content-Type": "application/json" },
         // body: JSON.stringify({ "inputtext": userInput })
-      })
     } catch (error) {
       console.log(error)
     }
