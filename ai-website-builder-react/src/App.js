@@ -63,7 +63,7 @@ function App() {
           <h1 className='bigTitleText centeronly' style={{marginTop:"80px", marginBottom:"0%"}}>Automate</h1>
           <h2 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>Your</h2>
           <h3 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"0px"}}>User</h3>
-          <h4 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"10px"}}>Interface</h4>
+          <h4 className='bigTitleText centeronly' style={{marginTop:"-30px", marginBottom:"20px"}}>Interface</h4>
           <div className='smallTitleText centeronly' style={{marginBottom:"5px"}}>SketchUI generates beautiful</div>
           <div className='smallTitleText centeronly' style={{marginBottom:"5px"}}>UI components and website elements</div>
           <div className='smallTitleText centeronly' style={{marginBottom:"2%"}}>from your drawings or words.</div>
@@ -73,24 +73,23 @@ function App() {
 
 
       <div>
+        <div className='midTitleText centeronly'>Add Text</div>
         <div class="fancy-box-with-button centeronly">
           <input type="text" placeholder='   Describe your component here' value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
           {<button onClick={(e) => fetchFromOpenAPI()}>Submit</button>}
         </div>
         <br></br>
 
-
-        <div className='midTitleText centeronly'>Or Add Your Image</div>
-        <br></br>
-
+        <div className='midTitleText centeronly'>Add Image</div>
         <div className='imageBox centeronly'>
           <input className='' type="file" onChange={handleChange} />
           <img className = "picture" src={file} />
         </div>
+        <br></br>
       </div>
 
       <div className='footer'>
-        {processing && <div style={{width:"10%", marginLeft:"auto", marginRight:"auto"}}>PROCESSING</div>}
+        {processing && <div className='midTitleText centeronly'>Processing Request...</div>}
         <ResultPage/>
         {APIResponse}
       </div>
