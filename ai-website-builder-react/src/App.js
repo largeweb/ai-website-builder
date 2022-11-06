@@ -19,11 +19,10 @@ function App() {
     // data.append('user', 'hubot')
     try {
       const response = await fetch('http://45.79.200.150:5000/sendsketch', {
-        method: 'POST',
+        method: 'GET'
         // body: {input: input}
         // headers: { "Content-Type": "application/json" },
         // body: JSON.stringify({ "inputtext": userInput })
-        body: data
       })
     } catch (error) {
       console.log(error)

@@ -50,9 +50,9 @@ app.post('/clear_all/', (req, res) => {
 
 });
 
-app.post('/sendsketch', (req, res) => {
-        // const file = `/root/uploaded/output.html`;
-        const file = `./src/pages/result-data.html`;
+app.get('/sendsketch', (req, res) => {
+        const file = `/root/uploaded/output.html`;
+        // const file = `./src/pages/result-data.html`;
         setTimeout(() => {
                 res.download(file); // Set disposition and send it.
         }, 3000);
