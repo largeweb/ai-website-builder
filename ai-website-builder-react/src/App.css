@@ -1,23 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins:wght@300&display=swap');
+
 :root {
   --app-header-color: #282c34;
   --button-color: white;
   --menu-color: #5838b4;
   --text-color: #5838b4;
-  --navmenu-btn-color: black;
-  --navmenu-icon-color: purple;
-  --navmenu-item-color: white;
   --small-link-btn-color: white;
   --footer-background: rgb(220, 235, 255);
-  --app-link-color: #5838b4;
   --home-div-bg-color: white;
   --nav-menu-btn-color: rgb(10, 25, 41);
   --big-title-text: black;
-  --small-title-text: orange;
 }
 
 * {
   font-family: 'Poppins', sans-serif;
   font: Verdana, Arial, 'sans-serif' !important;
+}
+
+@font-face {
+  font-family: onlineFont;
+  src: url();
 }
 
 .App {
@@ -30,41 +33,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--app-header-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: var(--app-link-color);
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-
-
 .centeronly {
   text-align: center;
   align-items: center;
@@ -72,14 +40,10 @@
   margin-right: auto;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
 }
-
-
 
 .loginInput {
   text-align: left;
@@ -124,9 +88,8 @@ body {
   z-index: 0;
 }
 
-
-
 .bigTitleText {
+  font-family: 'Open Sans';
   font-size: 80px;
   color: var(--big-title-text);
   font-weight: 1000;
@@ -134,24 +97,23 @@ body {
 }
 
 .midTitleText {
-  font-size: 40px;
+  font-size: 30px;
   color: var(--big-title-text);
-  font-weight: 1000;
+  font-weight: bold;
 }
 
 .smallTitleText {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--big-title-text);
+  text-align: left;
+  margin-left: 8px;
 }
 
 .mainTitleMenu {
   background-color: white;
   padding-top: 30px;
-  padding-bottom: -60px;
-  margin-bottom: -60px;
 }
-
 
 .button-google {
   align-items: center;
