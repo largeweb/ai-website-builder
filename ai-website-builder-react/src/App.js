@@ -17,41 +17,42 @@ function App() {
     // var data = new FormData()
     // data.append('file', e.target.files[0])
     // data.append('user', 'hubot')
+    try {
     setTimeout(() => {
-      try {
-        const response = await fetch('http://45.79.200.150:5000/sendsketch', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'text/html',
-          },
-        })
-        .then((response) => response.blob())
-        .then((blob) => {
-          // Create blob link to download
-          const url = window.URL.createObjectURL(
-            new Blob([blob]),
-          );
-          const link = document.createElement('a');
-          link.href = url;
-          link.setAttribute(
-            'download',
-            `output.html`,
-          );
+      const response = await fetch('http://45.79.200.150:5000/sendsketch', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'text/html',
+        },
+      })
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Create blob link to download
+        const url = window.URL.createObjectURL(
+          new Blob([blob]),
+        );
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute(
+          'download',
+          `output.html`,
+        );
 
-          // Append to html link element page
-          document.body.appendChild(link);
+        // Append to html link element page
+        document.body.appendChild(link);
 
-          // Start download
-          link.click();
+        // Start download
+        link.click();
 
-          // Clean up and remove the link
-          link.parentNode.removeChild(link);
-          console.log(".....DONE ?.....")
-        });
-      } catch (error) {
-        console.log(error)
-      }
-    }, 5000);
+        // Clean up and remove the link
+        link.parentNode.removeChild(link);
+        console.log(".....DONE ?.....")
+        }, 3000);
+      });
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   let openAIResponseJSONString = "";
