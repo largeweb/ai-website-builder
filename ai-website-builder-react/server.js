@@ -30,86 +30,41 @@ app.use(express.json())
 app.use(bodyParser.json());
 
 app.post('/clear_all/', (req, res) => {
-        console.log("CLEAR ALL")
+  console.log("CLEAR ALL")
+  exec("echo > ./src/pages/result-data", (err, stdout, stderr) => {
+        if (err !== null) {
+                console.log('exec error: ' + err);
+        }
+        exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added first half")
+        })
+        exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added result data")
+        })
+        exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added second half")
+        })
+        res.json({"message":"Success"});
+  });
+
 });
 
 app.post('/undo_last/', (req, res) => {
-        console.log("UNDO LAST")
-//   input = '"' + req.body.inputtext + '"';
-//   grcount = grcount + 1;
-//   console.log("TESTING THIS WITH INPUT " + input);
-//   let scmd = "";
-//   let componenttype = "";
-//   if(input.indexOf("button") != -1){
-//         componenttype = "button";
-//         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"button"';
-//   } else if(input.indexOf("header") != -1){
-//         componenttype = "header";
-//         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"header"';
-//   } else {
-//         componenttype = "div";
-//         scmd = './scripts/openai-request ' + OPENAI_API_KEY + " " + input + " " + '"div"';
-//   }
-//   console.log(scmd);
-//   console.log("TESTING THIS V2")
-//   let output = "";
+  console.log("UNDO LAST")
   exec("sed -i '$ d' ./src/pages/result-data", (err, stdout, stderr) => {
-        // setTimeout(function(){
-                // console.log('stdout: ' + stdout);
-                // console.log('stderr: ' + stderr);
-                if (err !== null) {
-                        console.log('exec error: ' + err);
-                }
-                // console.log("FINISHED:")
-                // console.log(stdout)
-                // outputjsonstring = stdout;
-
-
-                // THIS WILL PUT RESPONSE DATA IN THE RESULT PAGE
-                // exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                //         console.log("output is: " + outputjsonstring)
-                // })
-                // exec('echo "' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                //         console.log("output is: " + outputjsonstring)
-                // })
-                // exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                //         console.log("output is: " + outputjsonstring)
-                // })
-
-                // THIS WILL PUT BUTTON WITH RESPONSE DATA IN THE RESULT CSS
-
-                // const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-                // let randomString = '';
-                // const charactersLength = characters.length;
-                // for ( let i = 0; i < 10; i++ ) {
-                //     randomString += characters.charAt(Math.floor(Math.random() * charactersLength));
-                // }
-
-                // if(JSON.parse(outputjsonstring).choices[0].text.indexOf("}") == -1) {
-                //         res.json({"message":"Error occurred generating syntax, please try again"});
-                // }
-                // uniqueButtonId = randomString;
-                // indexOfOpenBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("{");
-                // indexOfCloseBracket = JSON.parse(outputjsonstring).choices[0].text.indexOf("}");
-                exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("added first half")
-                })
-                exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("added result data")
-                })
-                exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
-                        console.log("added second half")
-                })
-                // exec('echo "' + JSON.parse(outputjsonstring).choices[0].text + '" >> ./src/pages/result.css', (err, stdout, stderr) => {
-                //         console.log("output is: " + outputjsonstring)
-                // })
-
-                res.json({"message":"Success"});
-
-
-
-                // res.json(JSON.parse('{"output":'+`${output}`+'}'));
-        // }, 500)
+        if (err !== null) {
+                console.log('exec error: ' + err);
+        }
+        exec('cat ./src/pages/result-first-half > ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added first half")
+        })
+        exec('cat ./src/pages/result-data >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added result data")
+        })
+        exec('cat ./src/pages/result-second-half >> ./src/pages/ResultPage.js', (err, stdout, stderr) => {
+                console.log("added second half")
+        })
+        res.json({"message":"Success"});
   });
 
 });
